@@ -1,8 +1,10 @@
 package com.sprk.one_to_one.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
+@Data
 public class Student {
 
     @Id
@@ -16,7 +18,7 @@ public class Student {
     private String phone;
 
     // Aggregation
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name ="student_detail_id" )
     private StudentDetail studentDetail;
 }
